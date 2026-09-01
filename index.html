@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tạo Hồ sơ CTV VNG</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Tạo Hồ sơ CTV VNG</h1>
+    <p class="subtitle">Upload file <code>data.xlsx</code> để tự động sinh Hợp đồng, Biên bản nghiệm thu (BBNT) và Mẫu 02/TNDN. Mọi xử lý diễn ra ngay trong trình duyệt của bạn — dữ liệu không được gửi lên bất kỳ máy chủ nào.</p>
+
+    <div id="dropZone" class="drop-zone">
+      <p>Kéo thả file <strong>data.xlsx</strong> vào đây, hoặc bấm để chọn file</p>
+      <input type="file" id="fileInput" accept=".xlsx,.xls" hidden />
+    </div>
+
+    <div id="previewSection" hidden>
+      <h2>Xem trước dữ liệu</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Dòng</th>
+              <th>Họ tên</th>
+              <th>Số hạng mục</th>
+              <th>Số tiền</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody id="previewBody"></tbody>
+        </table>
+      </div>
+      <button id="generateBtn" disabled>Tạo hồ sơ &amp; tải ZIP</button>
+    </div>
+
+    <p id="status" class="status"></p>
+    <div id="log" class="log"></div>
+  </div>
+
+  <script src="vendor/xlsx.full.min.js"></script>
+  <script src="vendor/pdf-lib.min.js"></script>
+  <script src="vendor/fontkit.umd.min.js"></script>
+  <script src="vendor/docxtemplater.bundle.js"></script>
+  <script src="vendor/jszip.min.js"></script>
+  <script src="vendor/FileSaver.min.js"></script>
+
+  <!-- ?v= chong browser cache file JS cu sau khi cap nhat tool - nho tang so nay
+       moi khi sua bat ky file .js nao o duoi, neu khong trinh duyet co the chay
+       code cu da cache thay vi ban moi (da tung xay ra thuc te khi test). -->
+  <script src="js/embeddedAssets.js?v=3"></script>
+  <script src="js/embeddedAssetsHelper.js?v=3"></script>
+  <script src="js/xlsxParser.js?v=3"></script>
+  <script src="js/pdfContract.js?v=3"></script>
+  <script src="js/vnNumberWords.js?v=3"></script>
+  <script src="js/docxFill.js?v=3"></script>
+  <script src="js/main.js?v=3"></script>
+</body>
+</html>

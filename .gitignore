@@ -1,0 +1,8 @@
+# Du lieu that (CCCD, so tai khoan...) - khong bao gio push len repo cong khai.
+data.xlsx
+_test_data.xlsx
+_test_out/
+
+# Rac tam sinh ra khi chay script Python trong repo nay.
+__pycache__/
+*.pyc

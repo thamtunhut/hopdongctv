@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Canh chỉnh tọa độ Hợp đồng</title>
+<link rel="stylesheet" href="coord-editor.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1>Canh chỉnh tọa độ</h1>
+      <p class="hint">Kéo nhãn đỏ trên trang cho đúng chỗ, hoặc chọn 1 nhãn rồi dùng phím mũi tên (Shift = nhảy 5pt) để tinh chỉnh.</p>
+
+      <section>
+        <h2>Dữ liệu xem trước</h2>
+        <div id="dropZone" class="drop-zone-small">Kéo thả / bấm để chọn <code>data.xlsx</code> (không bắt buộc)</div>
+        <input type="file" id="fileInput" accept=".xlsx,.xls" hidden />
+        <select id="rowSelect" disabled>
+          <option value="">(dùng dữ liệu mẫu)</option>
+        </select>
+      </section>
+
+      <section>
+        <h2>Trang</h2>
+        <div id="pageTabs" class="page-tabs"></div>
+      </section>
+
+      <section>
+        <h2>Trường đang chọn</h2>
+        <div id="fieldPanel" class="field-panel">
+          <p class="muted">Bấm vào 1 nhãn trên trang để chỉnh.</p>
+        </div>
+      </section>
+
+      <section>
+        <button id="testRenderBtn">Xem thử PDF thật</button>
+        <button id="resetBtn" class="secondary">Reset toàn bộ về mặc định</button>
+      </section>
+
+      <section>
+        <h2>Xuất tọa độ</h2>
+        <p class="hint">Copy đoạn dưới, dán đè vào khối <code>const COORDINATES = {...}</code> trong <code>js/pdfContract.js</code>.</p>
+        <button id="exportBtn">Tạo code để copy</button>
+        <button id="copyBtn" class="secondary" disabled>Sao chép</button>
+        <textarea id="exportOutput" readonly rows="10" placeholder="Bấm 'Tạo code để copy' sau khi chỉnh xong..."></textarea>
+      </section>
+    </aside>
+
+    <main class="stage">
+      <div id="pageContainer" class="page-container"></div>
+      <div id="pdfPreviewWrap" class="pdf-preview-wrap" hidden>
+        <div class="pdf-preview-header">
+          <span>Bản PDF thật (render từ pdf-lib với tọa độ hiện tại)</span>
+          <button id="closePreviewBtn" class="secondary">Đóng</button>
+        </div>
+        <iframe id="pdfPreview"></iframe>
+      </div>
+    </main>
+  </div>
+
+  <script src="../vendor/xlsx.full.min.js"></script>
+  <script src="../vendor/pdf-lib.min.js"></script>
+  <script src="../vendor/fontkit.umd.min.js"></script>
+  <script src="../js/embeddedAssets.js?v=3"></script>
+  <script src="../js/embeddedAssetsHelper.js?v=3"></script>
+  <script src="../js/pdfContract.js?v=3"></script>
+  <script src="../js/xlsxParser.js?v=3"></script>
+  <script src="js/toolAssets.js"></script>
+  <script src="coord-editor.js"></script>
+</body>
+</html>
